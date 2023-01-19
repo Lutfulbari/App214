@@ -28,16 +28,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 String sNum = editText.getText().toString();
-                if(sNum.length() >0){
+                if(sNum.length() >0) {
 
-                    int number = Integer.parseInt(sNum);
+                    int year = Integer.parseInt(sNum);
+                    if (year % 400 == 0) tvDisplay.setText(year + "Akta leap year !!");
 
-                    if (number%5==0 && number%11==0){
-                        tvDisplay.setText("5 and 11 bivazzo");
-                    }else {
-                        tvDisplay.setText("5 and 11 bivazzo noy");
-                    }
-                }else{
+                    else if (year%4== 0 && year %100!=0)tvDisplay.setText(year + "Akta leap year !!");
+                            else tvDisplay.setText(year + "Akta leap year noy !!");
+                } else{
 
                     editText.setError("thik moto number dao");
 
